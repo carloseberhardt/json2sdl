@@ -1,0 +1,286 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JSON to SDL</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://stepzen.com/images/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://stepzen.com/images/favicon/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://stepzen.com/images/favicon/favicon-32x32.png"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.0.2/tailwind.min.css"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.5.4/jsoneditor.css"
+      integrity="sha512-Sbn0ZCJ/Sq+RcpmI2np6vYlQBolmDPIrx95V3kOQU7RfEOWRCgEmDvj5lD4oNnx55KVIUfadYs8rk3OudD+dFA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.5.4/jsoneditor.min.js"
+      integrity="sha512-XqPEV4ZPCp2ukA6CiSf3yfznfTfyXHmtuwkRwzStFNrDjQsm4SM13FBJ3eJ9joy9kLhKSuYSkjm7QYB0uHxPHg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.8/clipboard.min.js"
+      referrerpolicy="no-referrer"
+    ></script>
+    <style>
+      button:disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Section 1 -->
+    <section class="w-full px-8 text-gray-700 bg-white">
+      <div
+        class="container flex flex-col flex-wrap items-center justify-between py-5 mx-auto md:flex-row max-w-7xl"
+      >
+        <div class="relative flex flex-col md:flex-row">
+          <a
+            href="https://stepzen.com"
+            class="flex items-center mb-5 font-medium text-gray-900 lg:w-auto lg:items-center lg:justify-center md:mb-0"
+          >
+            <img src="https://stepzen.com/images/logo.svg" class="h-6" />
+          </a>
+        </div>
+
+        <div class="inline-flex items-center ml-5 space-x-6 lg:justify-end">
+          <a
+            href="https://stepzen.com/signup"
+            class="inline-flex items-center justify-center px-4 py-2 text-base font-medium leading-6 text-white whitespace-no-wrap bg-blue-600 border border-transparent rounded-md shadow-sm hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600"
+          >
+            Sign up
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- section 2,1-->
+    <section class="py-4 bg-white">
+      <div class="container max-w-6xl mx-auto">
+        <h2 class="text-4xl font-bold tracking-tight text-center">
+          JSON to SDL
+        </h2>
+        <p class="mt-2 text-lg text-center text-gray-600">
+          Put in some JSON, get out some SDL.
+        </p>
+        <form
+          action="/"
+          method="POST"
+          x-data="jsonForm()"
+          @submit.prevent="submitData"
+        >
+          <div
+            class="grid overflow-hidden grid-cols-12 grid-rows-5 gap-2 h-auto items-center"
+          >
+            <div class="box row-span-5 col-span-5 bg-gray-100 sm:rounded-xl">
+
+              <div>
+                <label class="block">JSON:</label>
+                <!-- <textarea name="json" class="border w-full p-1" x-model="formData.json"></textarea> -->
+                <div id="jsoneditor" class="h-96"></div>
+              </div>
+            </div>
+
+            <div class="box row-span-5 col-span-2">
+              <button
+                class="bg-gray-700 hover:bg-gray-800 disabled:opacity-50 text-white w-full p-2"
+                x-text="buttonLabel"
+                :disabled="loading"
+              ></button>
+            </div>
+          </form>
+
+            <div class="box row-span-5 col-span-5 bg-gray-100 sm:rounded-xl">
+              <button
+                class="float-right bg-gray-700 hover:bg-gray-800 disabled:opacity-50 text-white p-2"
+                id="copy-button"
+                data-clipboard-target="#sdl"
+                type="button"
+              >
+                Copy
+              </button>
+              <label class="block">SDL:</label>
+              <pre id="sdl" x-text="message" class="border h-96 bg-white overflow-auto"></pre>
+            </div>
+          </div>
+      </div>
+    </section>
+
+    <!-- Section 3 -->
+    <section class="text-gray-700 bg-white body-font">
+      <div
+        class="container flex flex-col items-center px-8 py-8 mx-auto max-w-7xl sm:flex-row"
+      >
+        <p
+          class="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l sm:border-gray-200 sm:mt-0"
+        >
+          © 2021 StepZen, Inc.
+        </p>
+        <span
+          class="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start"
+        >
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+            <span class="sr-only">Twitter</span>
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"
+              ></path>
+            </svg>
+          </a>
+
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+            <span class="sr-only">GitHub</span>
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                clip-rule="evenodd"
+              ></path>
+            </svg>
+          </a>
+
+          <a href="#" class="text-gray-400 hover:text-gray-500">
+            <span class="sr-only">Discord</span>
+            <svg
+              class="w-6 h-6"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              aria-hidden="true"
+            >
+              <path
+                clip-rule="evenodd"
+                fill-rule="evenodd"
+                d="M6.552 6.712c-.456 0-.816.4-.816.888s.368.888.816.888c.456 0 .816-.4.816-.888.008-.488-.36-.888-.816-.888zm2.92 0c-.456 0-.816.4-.816.888s.368.888.816.888c.456 0 .816-.4.816-.888s-.36-.888-.816-.888z"
+              />
+              <path
+                clip-rule="evenodd"
+                fill-rule="evenodd"
+                d="M13.36 0H2.64C1.736 0 1 .736 1 1.648v10.816c0 .912.736 1.648 1.64 1.648h9.072l-.424-1.48 1.024.952.968.896L15 16V1.648C15 .736 14.264 0 13.36 0zm-3.088 10.448s-.288-.344-.528-.648c1.048-.296 1.448-.952 1.448-.952-.328.216-.64.368-.92.472-.4.168-.784.28-1.16.344a5.604 5.604 0 0 1-2.072-.008 6.716 6.716 0 0 1-1.176-.344 4.688 4.688 0 0 1-.584-.272c-.024-.016-.048-.024-.072-.04-.016-.008-.024-.016-.032-.024-.144-.08-.224-.136-.224-.136s.384.64 1.4.944c-.24.304-.536.664-.536.664-1.768-.056-2.44-1.216-2.44-1.216 0-2.576 1.152-4.664 1.152-4.664 1.152-.864 2.248-.84 2.248-.84l.08.096c-1.44.416-2.104 1.048-2.104 1.048s.176-.096.472-.232c.856-.376 1.536-.48 1.816-.504.048-.008.088-.016.136-.016a6.521 6.521 0 0 1 4.024.752s-.632-.6-1.992-1.016l.112-.128s1.096-.024 2.248.84c0 0 1.152 2.088 1.152 4.664 0 0-.68 1.16-2.448 1.216z"
+              />
+            </svg>
+          </a>
+        </span>
+      </div>
+    </section>
+
+    <script>
+      var cb = new ClipboardJS("#copy-button");
+      // create the editor
+      const container = document.getElementById("jsoneditor");
+      const options = { mode: "code", mainMenuBar: false };
+      const editor = new JSONEditor(container, options);
+      editor.set({});
+
+      function restForm() {
+        return {
+          rest: {
+            url: "",
+            headers: "",
+          },
+
+          submitRest() {
+            fetch(this.rest.url, {
+              method: "GET",
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                editor.set(data);
+              })
+              .catch((err) => {
+                console.log(err);
+              })
+              .finally(() => {});
+          },
+        };
+      }
+
+      function jsonForm() {
+        return {
+          formData: {
+            object: "Root",
+            prefix: "",
+            json: "",
+          },
+          message: "",
+          loading: false,
+          buttonLabel: "Submit",
+
+          submitData() {
+            const j = JSON.stringify(editor.get());
+            this.buttonLabel = "Submitting...";
+            this.loading = true;
+            this.message = "";
+            const body = JSON.stringify({
+              operationName: "MyQuery",
+              query: `query MyQuery($json: String! $type: String $prefix: String) {
+                  generateSDLFromJson(json: $json, topObjectType: $type, typePrefix: $prefix) {
+                      sdl
+                      messages
+                  }
+              }`,
+              variables: {
+                json: j,
+                type: this.formData.object,
+                prefix: this.formData.prefix,
+              },
+            });
+            fetch("https://chico.stepzen.net/api/json2sdl/__graphql", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: body,
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                this.message = data.data.generateSDLFromJson.sdl;
+              })
+              .catch((err) => {
+                console.log(err);
+                this.message = "Ooops! Something went wrong!";
+              })
+              .finally(() => {
+                this.loading = false;
+                this.buttonLabel = "Submit";
+              });
+          },
+        };
+      }
+    </script>
+  </body>
+</html>
