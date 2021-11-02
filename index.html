@@ -96,6 +96,11 @@
                     class="codedemo-display"
                     >
                       <div class="codedemo-input">
+                        <button
+                        class=""
+                        :disabled="loading"
+                        @click.self="handleClick()"
+                      >Start with an example</button>
                         <span class="codedemo-tab">
                           <span>
                             Enter Your JSON
@@ -104,12 +109,12 @@
                             class="bg-gray-700 hover:bg-gray-800 disabled:opacity-50 text-white w-full p-2"
                             x-text="buttonLabel"
                             :disabled="loading"
+                            type="button"
                           ></button>
                         </span>
                         <div class="codedemo-codeWrap">
                           <div class="codedemo-code">
                                     <div id="jsoneditor" class="h-96"></div>
-                    
                               </div>
                             </div>
                           </div>
@@ -224,6 +229,13 @@
               });
           },
         };
+      }
+      function handleClick() {
+        editor.set({
+                    "jsondata": {
+                        "hello": "world"
+                                }
+                      })
       }
       function Form() {
         return {
