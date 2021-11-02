@@ -13,64 +13,22 @@
 
 @import url("elements/typography.css");
 @import url("elements/button.css");
-/*@import url("elements/brand-button.css");*/
 @import url("elements/forms.css");
-@import url("elements/links.css");
-@import url("elements/icons.css");
-@import url("elements/lists.css");
-@import url("elements/misc.css");
-@import url("elements/quotes.css");
-@import url("elements/videos");
 
 @import url("skeleton/layout.css");
 @import url("skeleton/header.css");
 @import url("skeleton/footer.css");
 
-@import url("skeleton/content.css");
-
-@import url("components/alert.css");
-@import url("components/algolia-search.css");
 @import url("components/code-demo.css");
-@import url("components/convert-blocks.css");
-@import url("components/explainer-card.css");
-/* @import url("components/feature"); */
 @import url("components/hero.css");
-@import url("components/hcard.css");
-@import url("components/logo-parade");
-@import url("components/notification.css");
-@import url("components/postcard.css");
-@import url("components/snippet.css");
 @import url("components/social-nav.css");
 @import url("components/stickers.css");
-@import url("components/story-card");
-@import url("components/card.css");
-@import url("components/banner-card.css");
-@import url("components/category-card.css");
-@import url("components/media-block.css");
-@import url("components/modal.css");
-@import url("components/pagination.css");
-@import url("components/personcard.css");
-@import url("components/plan-card.css");
-@import url("components/press-block.css");
-@import url("components/social-actions.css");
-@import url("components/template-card.css");
-@import url("components/tagnav.css");
 
-@import url("pages/page-account.css");
-@import url("pages/page-campaign.css");
-@import url("pages/page-docs.css");
-@import url("pages/page-explore.css");
-@import url("pages/page-home.css");
-@import url("pages/page-post");
-@import url("pages/page-pricing.css");
-@import url("pages/page-stories.css");
-
-@import url("utilities/helpers.css");
 @import url("utilities/color.css");
 
 :root {
   /* Grid & Spacing */
-  --max-width: 1280px;
+  --max-width: 1480px;
   --spacer: 30px;
   --spacer-half: 15px;
   --spacer-2: 60px;

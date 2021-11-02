@@ -23,12 +23,13 @@
 }
 
 .header-text {
+  color: #292929;
+  opacity: .6;
+  padding: 0 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
-/* body {
-    background: linear-gradient(90deg, #E2FCFE 55.65%, rgba(226, 252, 254, 0) 100%);
-    opacity: 1;
-} */
 
 .dark-layer {
   background: linear-gradient(90deg, #e2fcfe 100%, rgba(226, 252, 254, 0) 100%);
@@ -44,7 +45,7 @@ pre {
 }
 
 .ace_text-layer {
-  text: white;
+  color: white;
 }
 
 .ace-jsoneditor .ace_variable {
@@ -58,23 +59,106 @@ pre {
 .codedemo-code {
   color: white;
 }
-
-#form-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 1rem;
-  min-width: 8ch;
-  height: var(--input-height);
-  padding-right: 0.8rem;
-  padding-left: 0.8rem;
-  border: 2px solid var(--btn-border);
-  border-radius: var(--elem-radius);
-  background: light-grey;
-  font-weight: 500;
-  color: darkslategrey;
+#form-span {
+  margin: 0 1rem;
 }
 
-#form-span {
-  margin-left: 1rem;
+.two-text {
+  color: #2163EF;
+  font-size: 3rem;
+  margin: 0 auto;
+  display: inline-block;
+  overflow: hidden;
+  padding: 0 5px;
+}
+
+.color-g {
+  color: #292929;
+  opacity: .6;
+}
+
+.hero-header h1 {
+  font-size: 5rem;
+  margin-top: 0;
+}
+
+.json-button {
+  border: 1px solid #1D4E89;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  padding: 10px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.json-button:hover {
+  background: rgba(29, 78, 137, .3);
+}
+
+.json-button span {
+  padding: 0 3px;
+  color: #00B2CA;
+  font-weight: 600;
+}
+
+.start-button {
+  border: 1px solid #8B6091;
+  box-sizing: border-box;
+  border-radius: 4px;
+  display: flex;
+  padding: 10px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.start-button:hover {
+  background: rgba(139,96,145, .1);
+}
+
+.start-button span {
+  padding: 0 3px;
+  color: #8B6091;
+  font-weight: 600;
+}
+
+.divider {
+  opacity: 0.5;
+    border: 1px solid #FFFFFF;
+    margin: 0;
+    background: inherit;
+}
+
+.clipboard {
+  font-size: 20px;
+  margin: -5px auto;
+}
+
+#sdl {
+  padding: 2px
+}
+
+.ace-jsoneditor .ace_indent-guide {
+  display: none;
+}
+
+.codedemo-form {
+  width: 100%;
+  display: flex;
+}
+
+@media screen and (max-width: 920px) {
+  .codedemo-form {
+    width: 100%;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .codedemo-input {
+    margin-bottom: 20px;
+  }
+  .header-text {
+    display: none;
+  }
 }
