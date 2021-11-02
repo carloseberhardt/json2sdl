@@ -1,0 +1,42 @@
+.ace_gutter {
+    display: none !important;
+}
+
+.ace-jsoneditor .ace_scroller {
+    background-color: transparent !important;
+}
+
+.ace-jsoneditor.ace_editor {
+    background: transparent !important;
+}
+
+.ace-jsoneditor .ace_marker-layer .ace_active-line {
+    background: none;
+}
+
+.ace_scroller {
+    left: 0 !important;
+}
+
+.codedemo-code {
+    padding: 5px;
+}
+
+.header-text {
+    
+}
+
+/* body {
+    background: linear-gradient(90deg, #E2FCFE 55.65%, rgba(226, 252, 254, 0) 100%);
+    opacity: 1;
+} */
+
+.dark-layer {
+    background: linear-gradient(90deg, #E2FCFE 100%, rgba(226, 252, 254, 0) 100%);
+    opacity: 0.9;
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    clip-path: ellipse(97% 63% at 84% 100%);
+  }
