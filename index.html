@@ -52,25 +52,15 @@
     <div class="dark-layer"></div>
     <header class="site-header" id="SiteHeader">
       <div class="container">
-
         <nav class="site-nav">
-          <ul class="primary-nav">
-            <li>
-              <ActiveLink href="/developers">Developers</ActiveLink>
-            </li>
-          </ul>
-          <p class="header-text">Join</p>
+
           <a href="https://stepzen.com" class="site-header-logo">
             <img src="./images/stepzen-logo.png" alt="StepZen" />
           </a>
-          <p>to build your own GraphQL API</p>
-
-          <ul class="user-nav">
-            <li>
+             <ul class="mr-20">
               <a href="/api/auth/login" class="button color11">
-                <span>Sign Up</span>
+                <span class="user-nav">Sign Up</span>
               </a>
-            </li>
           </ul>
         </nav>
       </div>
@@ -79,12 +69,7 @@
       <div class="hero interactive-hero">
         <div class="container">
           <div class="grid">
-            <header class="hero-header sticker-header">
-              <div class="">
-                <h1>JSON2SDL</h1>
-                <div class="stickers">
-                </div>
-              </div>
+            <header class="">  
             </header>
             <div class="hero-content">
               <section class="codedemo">
@@ -97,18 +82,19 @@
                     >
                       <div class="codedemo-input">
                         <button
-                        class=""
+                        id="form-button"
                         :disabled="loading"
                         @click.self="handleClick()"
                       >Start with an example</button>
                         <span class="codedemo-tab">
-                          <span>
+                          <span id="form-span">
                             Enter Your JSON
                           </span>
                           <button
-                            class="bg-gray-700 hover:bg-gray-800 disabled:opacity-50 text-white w-full p-2"
+                            class="color7"
                             x-text="buttonLabel"
                             :disabled="loading"
+                            id="form-button"
                             type="button"
                           ></button>
                         </span>
@@ -120,12 +106,12 @@
                           </div>
                           <div class="codedemo-output">
                             <span class="codedemo-tabResult">
-                              <span>
+                              <span id="form-span">
                                 Output SDL
                               </span>
                               <button
-                              class="float-right bg-gray-700 hover:bg-gray-800 disabled:opacity-50 text-white p-2"
-                              id="copy-button"
+                              class="stepzen-button"
+                              id="form-button"
                               data-clipboard-target="#sdl"
                               type="button"
                               >
@@ -134,7 +120,7 @@
                             </span>
                             <div class="codedemo-codeResult">
                               <div class="codedemo-code">
-                              <pre id="sdl" x-text="message" class="border h-96 bg-white overflow-auto"></pre>
+                              <pre id="sdl" x-text="message" ></pre>
                             </div>
                           </div>
                         </div>

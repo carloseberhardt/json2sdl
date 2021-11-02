@@ -5,7 +5,7 @@
   padding: 12px;
   box-shadow: 0 0 50px #744e78;
   border-radius: 4px;
-  background-color: #0F182D;
+  background-color: #0f182d;
 }
 
 .codedemo .notification .button {
@@ -26,7 +26,7 @@
   background-repeat: no-repeat;
   background-size: 80%;
 
-  content: '';
+  content: "";
 }
 
 .codedemo-display {
@@ -104,11 +104,11 @@
   font-size: 13.5px;
 }
 
-.codedemo-display[data-state='sent'] .codedemo-input {
+.codedemo-display[data-state="sent"] .codedemo-input {
   display: none;
 }
 
-.codedemo-display[data-state='sent'] .codedemo-output {
+.codedemo-display[data-state="sent"] .codedemo-output {
   display: flex;
 }
 
@@ -123,7 +123,7 @@
   font-size: 0.8rem;
   font-weight: bold;
   text-align: center;
-  color: #FFF;
+  color: #fff;
 }
 
 .codedemo-codeWrap {
@@ -143,7 +143,7 @@
   font-size: 0.8rem;
   font-weight: bold;
   text-align: center;
-  color: #FFF;
+  color: #fff;
 }
 
 .codedemo-codeResult {
@@ -245,18 +245,22 @@
     width: calc(50% - 6px);
   }
 
-  .codedemo .codedemo-output pre[class*='language-'] {
+  .codedemo .codedemo-output pre[class*="language-"] {
     padding-left: 3.8em;
   }
 
-  .codedemo pre[class*='language-'],
-  .codedemo-display[data-state='sent']
+  .codedemo pre[class*="language-"],
+  .codedemo-display[data-state="sent"]
     .codedemo-output
-    pre[class*='language-'] {
+    pre[class*="language-"] {
     padding-left: 1.8em;
   }
 
-  .codedemo-display[data-state='sent'] .codedemo-input {
+  .codedemo-display[data-state="sent"] .codedemo-input {
     display: flex;
   }
+}
+
+span {
+  color: white;
 }

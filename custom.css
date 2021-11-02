@@ -1,29 +1,28 @@
 .ace_gutter {
-    display: none !important;
+  display: none !important;
 }
 
 .ace-jsoneditor .ace_scroller {
-    background-color: transparent !important;
+  background-color: transparent !important;
 }
 
 .ace-jsoneditor.ace_editor {
-    background: transparent !important;
+  background: transparent !important;
 }
 
 .ace-jsoneditor .ace_marker-layer .ace_active-line {
-    background: none;
+  background: none;
 }
 
 .ace_scroller {
-    left: 0 !important;
+  left: 0 !important;
 }
 
 .codedemo-code {
-    padding: 5px;
+  padding: 5px;
 }
 
 .header-text {
-    
 }
 
 /* body {
@@ -32,11 +31,50 @@
 } */
 
 .dark-layer {
-    background: linear-gradient(90deg, #E2FCFE 100%, rgba(226, 252, 254, 0) 100%);
-    opacity: 0.9;
-    z-index: 0;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    clip-path: ellipse(97% 63% at 84% 100%);
-  }
+  background: linear-gradient(90deg, #e2fcfe 100%, rgba(226, 252, 254, 0) 100%);
+  opacity: 0.9;
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  clip-path: ellipse(97% 63% at 84% 100%);
+}
+pre {
+  color: lightgray;
+}
+
+.ace_text-layer {
+  text: white;
+}
+
+.ace-jsoneditor .ace_variable {
+  color: lightgrey;
+}
+
+.ace-jsoneditor .ace_string {
+  color: white;
+}
+
+.codedemo-code {
+  color: white;
+}
+
+#form-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem;
+  min-width: 8ch;
+  height: var(--input-height);
+  padding-right: 0.8rem;
+  padding-left: 0.8rem;
+  border: 2px solid var(--btn-border);
+  border-radius: var(--elem-radius);
+  background: light-grey;
+  font-weight: 500;
+  color: darkslategrey;
+}
+
+#form-span {
+  margin-left: 1rem;
+}
