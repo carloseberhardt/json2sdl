@@ -138,7 +138,6 @@
 
   .interactive-hero .hero-header {
     display: block;
-    padding-top: var(--spacer-2);
   }
 
   .interactive-hero:before {
@@ -187,6 +186,10 @@
 .home-hero .hero-content {
   display: flex;
   justify-content: center;
+}
+
+.hero-content {
+  width: 100%;
 }
 
 .home-hero h1 {
