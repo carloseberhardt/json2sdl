@@ -2,7 +2,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>JSON to SDL</title>
+    <title>JSON2SDL</title>
     <script
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
@@ -32,14 +32,12 @@
     <header class="site-header" id="SiteHeader">
       <div class="container">
         <nav class="site-nav">
-          <ul class="primary-nav"></ul>
           <p class="header-text">Join</p>
           <a href="https://stepzen.com" class="site-header-logo">
             <img src="./images/stepzen-logo.png" alt="StepZen" />
           </a>
           <p class="header-text">to build your own GraphQL API</p>
-
-          <ul class="mr-20">
+          <ul class="mr-20 create-mobile">
             <a href="https://stepzen.com/signup" class="button color11">
               <span class="user-nav">Create a Free Account</span>
             </a>
@@ -50,7 +48,6 @@
     <main>
       <div class="hero interactive-hero">
         <div class="container">
-          <!-- <div class="grid"> -->
           <form
             action="/"
             method="POST"
@@ -58,17 +55,11 @@
             @submit.prevent="submitData"
             class="codedemo-form"
           >
-            <header class="hero-header sticker-header">
-              <h1>JSON<span class="two-text">{2}</span>SDL</h1>
-              <div class="stickers">
-                <h3>
-                  StepZen makes it easy to build GraphQL APIs from existing REST
-                  services.
-                </h3>
-                <h4 class="color-g">
-                  Enter your JSON and get SDL you can use to begin building your
-                  own service.
-                </h4>
+            <header class="hero-header">
+              <h1 class="json-header">
+                JSON<span class="two-text">{2}</span>SDL
+              </h1>
+              <div class="starter-buttons">
                 <button
                   id="form-button"
                   @click.self="handleClick()"
@@ -76,6 +67,9 @@
                 >
                   Start with an example
                 </button>
+                <a href="https://stepzen.com/signup" class="button color11">
+                  <span class="user-nav">Create a Free Account</span>
+                </a>
               </div>
             </header>
             <div class="hero-content">
@@ -85,9 +79,9 @@
                     <span class="codedemo-tab">
                       <span id="form-span"> Enter Your JSON </span>
                       <button class="json-button" :disabled="loading">
-                        <!-- <span>
+                        <span>
                           &#9658;
-                        </span> -->
+                        </span>
                         <span> Convert </span>
                       </button>
                     </span>
@@ -107,9 +101,9 @@
                         data-clipboard-target="#sdl"
                         type="button"
                       >
-                        <!-- <span class="clipboard">
+                        <span class="clipboard">
                           &#x2398
-                        </span> -->
+                        </span>
                         <span> Copy </span>
                       </button>
                     </span>
@@ -124,7 +118,6 @@
               </section>
             </div>
           </form>
-          <!-- </div> -->
         </div>
       </div>
     </main>
@@ -213,8 +206,60 @@
       }
       function handleClick() {
         editor.set({
-          jsondata: {
-            hello: "world",
+          id: "8bd96804-d1c5-4657-a081-0e8eb0bf3881",
+          index: 56,
+          period: 1,
+          timestamp: "00:01:03.663",
+          minute: 1,
+          second: 3,
+          type: {
+            id: 30,
+            name: "Pass",
+          },
+          possession: 3,
+          possession_team: {
+            id: 217,
+            name: "Barcelona",
+          },
+          play_pattern: {
+            id: 1,
+            name: "Regular Play",
+          },
+          team: {
+            id: 217,
+            name: "Barcelona",
+          },
+          player: {
+            id: 5213,
+            name: "Gerard Piqué Bernabéu",
+          },
+          position: {
+            id: 3,
+            name: "Right Center Back",
+          },
+          location: [64.0, 53.0],
+          duration: 1.423,
+          under_pressure: true,
+          related_events: [
+            "98a4ab62-61cb-4ff3-a959-98183a8ecf97",
+            "dbc7fbbf-7510-47b5-b0ab-e497f59066b9",
+          ],
+          pass: {
+            recipient: {
+              id: 5503,
+              name: "Lionel Andrés Messi Cuccittini",
+            },
+            length: 28.653097,
+            angle: 1.060308,
+            height: {
+              id: 1,
+              name: "Ground Pass",
+            },
+            end_location: [78.0, 78.0],
+            body_part: {
+              id: 40,
+              name: "Right Foot",
+            },
           },
         });
       }
