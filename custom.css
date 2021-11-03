@@ -204,3 +204,7 @@ pre {
 .ace-jsoneditor .ace_cursor {
   border-left: 2px solid #FFFFFF;
 }
+
+.ace-jsoneditor .ace_marker-layer .ace_selection {
+  background: rgba(178,207,249, .3)
+}
