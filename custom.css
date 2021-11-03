@@ -131,7 +131,7 @@ pre {
 }
 
 .ace-jsoneditor .ace_indent-guide {
-  display: none;
+  background: transparent;
 }
 
 .codedemo-form {
