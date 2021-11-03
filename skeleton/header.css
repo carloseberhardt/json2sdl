@@ -22,18 +22,12 @@
   height: 28px;
 }
 
-.site-header .primary-nav,
-.site-header .user-nav {
-  position: absolute;
-  top: -100%;
-  left: -100%;
-}
-
 .site-nav,
 .primary-nav,
 .user-nav {
   flex: 1;
   display: flex;
+  justify-content: flex-end;
 }
 
 .user-nav li + li {
