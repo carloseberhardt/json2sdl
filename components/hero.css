@@ -1,7 +1,5 @@
 .hero {
   position: relative;
-  padding-top: var(--spacer-3);
-  padding-bottom: var(--spacer-2);
 }
 
 .hero > .container {
@@ -93,7 +91,6 @@
 
 .interactive-hero {
   position: relative;
-  padding-top: var(--spacer-2);
 }
 
 .interactive-hero > * {
@@ -130,10 +127,6 @@
 }
 
 @media (min-width: 920px) {
-  .interactive-hero {
-    padding-top: calc(var(--spacer) * 4);
-  }
-
   .interactive-hero:before {
     height: 130%;
 
