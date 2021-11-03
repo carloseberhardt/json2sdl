@@ -55,6 +55,13 @@ pre {
 .ace-jsoneditor .ace_string {
   color: white;
 }
+.ace-jsoneditor .ace_value {
+  color: white;
+}
+
+.ace-jsoneditor .ace_constant.ace_numeric {
+  color: #f08d49;
+}
 
 .codedemo-code {
   color: white;
