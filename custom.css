@@ -49,18 +49,18 @@ pre {
 }
 
 .ace-jsoneditor .ace_variable {
-  color: lightgrey;
+  color: #cbcbcc;
 }
 
 .ace-jsoneditor .ace_string {
-  color: white;
+  color: #7ac097;
 }
 .ace-jsoneditor .ace_value {
-  color: white;
+  color: #7ac097;
 }
 
 .ace-jsoneditor .ace_constant.ace_numeric {
-  color: #f08d49;
+  color: #dd854c;
 }
 
 .codedemo-code {
