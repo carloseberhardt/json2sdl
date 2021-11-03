@@ -1,3 +1,5 @@
+* { box-sizing: border-box; }
+
 .ace_gutter {
   display: none !important;
 }
@@ -163,8 +165,11 @@ pre {
   .create-mobile {
     display: none;
   }
+}
+
+@media screen and (max-width: 919px) {
   .site-nav {
-    justify-content: flex-start;
+    justify-content: space-between;
   }
 }
 
